@@ -5,12 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(PolygonCollider2D))]
 public class RoomCamTrigger : MonoBehaviour
 {
-    static Cinemachine.CinemachineConfiner vCam = null;
     
     private void Awake()
     {
-        if (vCam == null)
-            vCam = FindObjectOfType<Cinemachine.CinemachineConfiner>();
+        
     }
 
     private void Start()
@@ -21,16 +19,17 @@ public class RoomCamTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            var cam = FindObjectOfType<Camera>();
-            var position = cam.gameObject.transform.position;
+            //var cam = FindObjectOfType<Camera>();
+            //var position = cam.gameObject.transform.position;
 
             var col = GetComponent<PolygonCollider2D>();
             var center = col.bounds.center;
 
-            position.x = center.x;
-            position.y = center.y;
+            //position.x = center.x;
+            //position.y = center.y;
 
-            cam.gameObject.transform.position = position;
+            //cam.gameObject.transform.position = position;
+            Assets.Scripts.Manager.CameraManager.Camera.TranslateCamera(center);
         }
     }
     
