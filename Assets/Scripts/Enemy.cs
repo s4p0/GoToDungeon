@@ -39,7 +39,7 @@ public class Enemy : Character
 
         var floatingText = Instantiate(DamageFloatingTextPrefab, pos, Quaternion.identity);
         floatingText.GetComponent<TextMesh>().text = Mathf.Clamp(health, 0, health).ToString();
-        CameraShake.Instance.RequestShake();
+        Assets.Scripts.Manager.CameraManager.Instance.RequestShake();
 
         if (health <= 0)
             Destroy(gameObject);

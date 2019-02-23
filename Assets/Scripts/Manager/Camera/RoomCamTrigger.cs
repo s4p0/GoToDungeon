@@ -2,37 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PolygonCollider2D))]
-public class RoomCamTrigger : MonoBehaviour
+namespace Assets.Scripts.Manager
 {
-    
-    private void Awake()
-    {
-        
-    }
 
-    private void Start()
+    [RequireComponent(typeof(PolygonCollider2D))]
+    public class RoomCamTrigger : MonoBehaviour
     {
-        
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            //var cam = FindObjectOfType<Camera>();
-            //var position = cam.gameObject.transform.position;
+            if (collision.CompareTag("Player"))
+            {
+                var col = GetComponent<PolygonCollider2D>();
+                var center = col.bounds.center;
 
-            var col = GetComponent<PolygonCollider2D>();
-            var center = col.bounds.center;
-
-            //position.x = center.x;
-            //position.y = center.y;
-
-            //cam.gameObject.transform.position = position;
-            Assets.Scripts.Manager.CameraManager.Camera.TranslateCamera(center);
+                CameraManager.Instance.TranslateCamera(center);
+            }
         }
     }
-    
-    
-    
+
 }
