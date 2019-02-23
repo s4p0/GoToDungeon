@@ -37,6 +37,7 @@ namespace Assets.Scripts.Manager
             {
                 isUpdating = false;
                 Time.timeScale = 1f;
+                OldPosition = NewPosition;
             }
 
             if (isUpdating)
@@ -49,6 +50,9 @@ namespace Assets.Scripts.Manager
         public void TranslateCamera(Vector3 center)
         {
             center.z = Main.gameObject.transform.position.z;
+
+            if (center == OldPosition)
+                return;
 
             OldPosition = Main.gameObject.transform.position;
             NewPosition = center;
