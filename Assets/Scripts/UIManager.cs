@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Manager;
-using Assets.Scripts.Pickups;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -109,14 +108,11 @@ public class UIManager : MonoBehaviour
 
     public void SubscribeToEvents()
     {
-        Assets.Scripts.Manager.GameManager.Manager.Pickups.Subscribe(PickupEnum.Item, ItemPickup);
-        Assets.Scripts.Manager.GameManager.Manager.Pickups.Subscribe(PickupEnum.Weapon, WeaponPickup);
+        
     }
 
     private void WeaponPickup(object sender, PickupEventArgs e)
     {
-        //var weaponEvt = e as WeaponPickupEventArgs;
-        //var renderer = weaponEvt.Weapon.WeaponPrefab.GetComponent<SpriteRenderer>();
         
     }
 

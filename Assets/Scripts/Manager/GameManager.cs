@@ -1,11 +1,9 @@
-﻿using Assets.Scripts.Pickups;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-using Weapons;
 
 namespace Assets.Scripts.Manager
 {
@@ -23,11 +21,9 @@ namespace Assets.Scripts.Manager
 
         public GameManager()
         {
-            Pickups = new PickupCollection();
             Messages = new MessageCollection();
         }
-
-        public PickupCollection Pickups { get; }
+        
         public MessageCollection Messages { get; }
 
     }
@@ -55,42 +51,5 @@ namespace Assets.Scripts.Manager
         public Collider2D Collision { get; internal set; }
     }
 
-    public class WeaponPickupEventArgs : PickupEventArgs
-    {
-        public Character Character;
 
-        public PickUpWeapon WeaponPickup { get; internal set; }
-        public Weapon Weapon { get; internal set; }
-    }
-    
-
-    public partial class PickupCollection
-    {
-
-        private Dictionary<PickupEnum, List<EventHandler<PickupEventArgs>>> events = new Dictionary<PickupEnum, List<EventHandler<PickupEventArgs>>>();
-
-        public void Subscribe(PickupEnum pickupEnum, EventHandler<PickupEventArgs> handler)
-        {
-            if (!events.TryGetValue(pickupEnum, out List<EventHandler<PickupEventArgs>> list))
-            {
-                list = new List<EventHandler<PickupEventArgs>>();
-                events.Add(pickupEnum, list);
-            }
-            list.Add(handler);
-        }
-
-        public void Usubscribe(PickupEnum pickupEnum, EventHandler<PickupEventArgs> handler)
-        {
-            if (events.TryGetValue(pickupEnum, out List<EventHandler<PickupEventArgs>> list))
-                list.Remove(handler);
-        }
-
-        public void Publish(PickupEnum pickupEnum, PickUp sender, PickupEventArgs arguments)
-        {
-            if (events.TryGetValue(pickupEnum, out List<EventHandler<PickupEventArgs>> list))
-                foreach (var item in list)
-                    item.Invoke(sender, arguments);
-        }
-
-    }
 }

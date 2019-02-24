@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Scripts.Manager.Controllers
-{
+namespace Assets.Scripts.Manager
+{ 
     public class ControllerManager : MonoBehaviour
     {
         public static ControllerManager Controller { get; set; }
