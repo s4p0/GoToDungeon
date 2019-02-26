@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 2781370683538342930}
   - component: {fileID: 2781370683538342941}
   - component: {fileID: 2781370683538342940}
-  - component: {fileID: 1618129210}
   - component: {fileID: 1618129211}
-  - component: {fileID: 1618129209}
+  - component: {fileID: 1618129210}
   m_Layer: 0
   m_Name: Big Monster 1
   m_TagString: Enemy
@@ -102,27 +101,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!50 &1618129210
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2781370683538342943}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 50
-  m_LinearDrag: 10
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!61 &1618129211
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149,23 +127,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.125, y: 1.6875}
   m_EdgeRadius: 0
---- !u!114 &1618129209
-MonoBehaviour:
+--- !u!50 &1618129210
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2781370683538342943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3ca9258c4f026e448d3abf35ec33595, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 30
-  strength: 5
-  runningThreshold: 0.5
-  hasRunningAnimation: 1
-  vigilantDistance: 5
-  speed: 500
-  DamageFloatingTextPrefab: {fileID: 7227841273726198339, guid: 7cfa810ca84fe114b9de19f16ab4cea2,
-    type: 3}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 50
+  m_LinearDrag: 10
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

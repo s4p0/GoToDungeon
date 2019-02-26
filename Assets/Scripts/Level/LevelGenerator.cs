@@ -255,6 +255,7 @@ namespace Level
                         action.vigilantDistance = Random.Range(3, 12);
                         action.speed = Random.Range(500, 750f);
                         action.keepOriginalPosition = Random.value > .8f;
+                        monster.AddComponent<Assets.Scripts.Actions.Health>();
                     }
                     else if (rnd <= .5 && rnd >= .2)
                     {

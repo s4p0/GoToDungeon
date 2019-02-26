@@ -6,7 +6,7 @@ namespace Assets.Scripts.Actions
     {
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            SendMessageUpwards("HasAttacked", collision);
+            SendMessageUpwards("HasAttacked", collision.gameObject);
         }
     }
 }
