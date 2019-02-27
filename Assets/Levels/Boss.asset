@@ -15,4 +15,5 @@ MonoBehaviour:
   size: 0
   minHealth: 0
   maxHealth: 0
-  prefabs: []
+  prefabs:
+  - {fileID: 0}

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7591345439156c843a3f2843d38ad057, type: 3}
+  m_Name: Level 1
+  m_EditorClassIdentifier: 
+  levelOrder: 1
+  levelName: Welcome To Dungeon
+  numberOfRooms: 10
+  numberOfSmallMonsters: 4
+  numberOfMediumMonsters: 5
+  numberOfBigMonsters: 1
+  rooms:
+  - GridPrefab: {fileID: 6712611536450782082, guid: ce77ee4ef21b4a64394049b665946e62,
+      type: 3}
+    GridSize: {x: 8, y: 8}
+    overrideHorizontalVertical: 0
+    overridedHorizontal: 0
+  - GridPrefab: {fileID: 4053477072268176153, guid: cd491fcc2f60e6744ab823900a8e4207,
+      type: 3}
+    GridSize: {x: 20, y: 6}
+    overrideHorizontalVertical: 0
+    overridedHorizontal: 0
+  aisles:
+  - GridPrefab: {fileID: 3306789953462985292, guid: dd6ad76f96e0d4b4da5874d8a0a15b71,
+      type: 3}
+    GridSize: {x: 4, y: 11}
+    overrideHorizontalVertical: 0
+    overridedHorizontal: 0
+  - GridPrefab: {fileID: 7294023873648981051, guid: 3bd8031e64b875c49a4e769b76c391b9,
+      type: 3}
+    GridSize: {x: 19, y: 4}
+    overrideHorizontalVertical: 0
+    overridedHorizontal: 0
+  sidewaysProbability: 1
