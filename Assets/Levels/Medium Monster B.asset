@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Medium Monster B
   m_EditorClassIdentifier: 
   size: 0
-  minHealth: 0
-  maxHealth: 0
+  minHealth: 40
+  maxHealth: 60
   prefabs:
-  - {fileID: 0}
+  - {fileID: 2009459419350737261, guid: 6410febb55134544ba488540286521ad, type: 3}
+  - {fileID: 5393676213844853323, guid: 00700959185e5d540b81569b9617383e, type: 3}
+  - {fileID: 7523092560649354487, guid: dd84f0d4104820d41b21ff5db68dc73e, type: 3}

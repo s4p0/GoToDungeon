@@ -15,7 +15,7 @@ MonoBehaviour:
   levelOrder: 1
   levelName: Welcome To Dungeon
   numberOfRooms: 10
-  numberOfSmallMonsters: 4
+  numberOfSmallMonsters: 20
   numberOfMediumMonsters: 5
   numberOfBigMonsters: 1
   rooms:
@@ -41,3 +41,6 @@ MonoBehaviour:
     overrideHorizontalVertical: 0
     overridedHorizontal: 0
   sidewaysProbability: 1
+  monsters:
+  - {fileID: 11400000, guid: 74c77f400dd65f14b90882287a522e1c, type: 2}
+  - {fileID: 11400000, guid: 1663e96c32016b74fa0e416b4b097459, type: 2}

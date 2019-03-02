@@ -15,14 +15,14 @@ namespace Assets.Scripts.UI
         public IHealth health { get; private set; }
 
         private SpriteRenderer rend;
+        private bool initialized;
         public int previous;
         public bool updated;
         private float status;
 
         private void Start()
         {
-            health = GetComponentInParent<IHealth>();
-            rend = GetComponent<SpriteRenderer>();
+            
         }
 
         void UpdateHealthStatus()
@@ -41,8 +41,18 @@ namespace Assets.Scripts.UI
             rend.sprite = sprites[pos];
         }
 
+        public void Initialize()
+        {
+            health = GetComponentInChildren<IHealth>();
+            rend = GetComponent<SpriteRenderer>();
+            initialized = true;
+        }
+
         private void Update()
         {
+            if (!initialized)
+                return;
+
             updated = status != health.CurrentHealth;
             
             if(updated)

@@ -1,15 +1,18 @@
 ﻿using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Scripts.Actions
 {
+    [System.Serializable]
+    
     public class Health : MonoBehaviour, IHealth
     {
         public int TotalHealth { get; set; }
 
         public int CurrentHealth { get; set; }
 
-        public Health()
+        public void Start()
         {
             CurrentHealth = TotalHealth;
         }

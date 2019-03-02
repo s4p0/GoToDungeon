@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Actions;
+using UnityEditor;
+using UnityEngine;
 
 namespace Assets.Scripts.Enemies
 {
@@ -6,26 +8,41 @@ namespace Assets.Scripts.Enemies
     {
         public static GameObject Create(GameObject prefab, int minHealth = 10, int maxHealth = 20, GameObject[] attachPrefabs = null)
         {
-            var life = Random.Range(minHealth, maxHealth); 
+            UnityEngine.Object healthPrefab = AssetDatabase.LoadAssetAtPath("Assets/Prefab/HealthBar.prefab", typeof(UI.HealthBar));
+            var healthBar = Object.Instantiate(healthPrefab, new Vector3(0, 2, -5), Quaternion.identity) as UI.HealthBar;
 
-            var obj = Object.Instantiate(prefab);
-            var monster = obj.AddComponent<Monster>();
+            //obj.transform.parent = healthBar.transform;
+
+
+            var objMonster = Object.Instantiate(prefab, Vector3.zero, Quaternion.identity, healthBar.transform);
+            var monster = objMonster.AddComponent<Monster>();
+
+            var life = Random.Range(minHealth, maxHealth); 
             monster.TotalHealth = life;
 
-            var rb = obj.AddComponent<Rigidbody2D>();
+            var rb = objMonster.AddComponent<Rigidbody2D>();
             rb.gravityScale = 0;
-            rb.mass = life * 3;
-            rb.drag = rb.mass / 4.0f;
+            rb.mass = life * 5;
+            //rb.drag = rb.mass / 4.0f;
+            rb.drag = 2.5f;
             rb.freezeRotation = true;
 
-            obj.AddComponent<BoxCollider2D>();
+            objMonster.AddComponent<BoxCollider2D>();
+            objMonster.AddComponent<Movement>();
+            objMonster.AddComponent<ChaseAction>().speed = rb.mass;
+            
 
-            foreach (var item in attachPrefabs)
+
+            if (attachPrefabs != null)
             {
-                Object.Instantiate(item, obj.transform);
+                foreach (var item in attachPrefabs)
+                {
+                    Object.Instantiate(item, objMonster.transform);
+                }
             }
 
-            return obj;
+            healthBar.Initialize();
+            return healthBar.gameObject;
         }
 
         public static GameObject Create(MonsterAsset asset, GameObject[] attachPrefabs = null)
