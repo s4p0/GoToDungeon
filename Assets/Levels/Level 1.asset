@@ -42,5 +42,5 @@ MonoBehaviour:
     overridedHorizontal: 0
   sidewaysProbability: 1
   monsters:
-  - {fileID: 11400000, guid: 74c77f400dd65f14b90882287a522e1c, type: 2}
+  - {fileID: 11400000, guid: c63b63ff9ef0ec94c8fc5af1d420476a, type: 2}
   - {fileID: 11400000, guid: 1663e96c32016b74fa0e416b4b097459, type: 2}

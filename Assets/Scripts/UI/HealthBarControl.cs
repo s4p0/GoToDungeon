@@ -1,4 +1,6 @@
-﻿using UnityEditor;
+﻿using System;
+using Assets.Scripts.Actions;
+using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Scripts.UI
@@ -7,19 +9,25 @@ namespace Assets.Scripts.UI
     {
         [Range(0,1)]
         public float scale = 1f;
-        private Vector3 current;
-
+        private Vector3 currentScale = Vector3.one;
         public GameObject foregroundSprite;
 
-
+        public IHealth health;
+        
         private void Start()
         {
-            current = foregroundSprite.transform.localScale;
+            currentScale = foregroundSprite.transform.localScale;
         }
-        private void Update()
+
+        private void FixedUpdate()
         {
-            current.x = scale;
-            foregroundSprite.transform.localScale = current;
+            SetHealth(health.HealthPercentage);
+        }
+
+        internal void SetHealth(float perc)
+        {
+            currentScale.x = Mathf.Clamp(perc, 0f, 1.065f);
+            foregroundSprite.transform.localScale = currentScale;
         }
     }
 }

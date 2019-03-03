@@ -8,13 +8,7 @@ namespace Assets.Scripts.Enemies
     {
         public static GameObject Create(GameObject prefab, int minHealth = 10, int maxHealth = 20, GameObject[] attachPrefabs = null)
         {
-            UnityEngine.Object healthPrefab = AssetDatabase.LoadAssetAtPath("Assets/Prefab/HealthBar.prefab", typeof(UI.HealthBar));
-            var healthBar = Object.Instantiate(healthPrefab, new Vector3(0, 2, -5), Quaternion.identity) as UI.HealthBar;
-
-            //obj.transform.parent = healthBar.transform;
-
-
-            var objMonster = Object.Instantiate(prefab, Vector3.zero, Quaternion.identity, healthBar.transform);
+            var objMonster = Object.Instantiate(prefab, Vector3.zero, Quaternion.identity);
             var monster = objMonster.AddComponent<Monster>();
 
             var life = Random.Range(minHealth, maxHealth); 
@@ -41,8 +35,10 @@ namespace Assets.Scripts.Enemies
                 }
             }
 
-            healthBar.Initialize();
-            return healthBar.gameObject;
+            //healthBar.Initialize();
+            //return healthBar.gameObject;
+
+            return objMonster;
         }
 
         public static GameObject Create(MonsterAsset asset, GameObject[] attachPrefabs = null)
