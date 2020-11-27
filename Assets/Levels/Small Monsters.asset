@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b92cbc28e839d9488ceb8ed0ea7d68c, type: 3}
-  m_Name: Monster
+  m_Name: Small Monsters
   m_EditorClassIdentifier: 
   size: 0
-  minHealth: 0
-  maxHealth: 0
-  prefabs: []
+  minHealth: 20
+  maxHealth: 40
+  prefabs:
+  - {fileID: 508668069442854742, guid: f50dc61723ed2ca4589c2de1c07bfb83, type: 3}
+  - {fileID: 8066455575907656698, guid: 43a14da8a94c099459cdca8038b752fa, type: 3}
+  - {fileID: 5125226933076032625, guid: 537509e6416b5a64ab805fe00b198257, type: 3}

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b92cbc28e839d9488ceb8ed0ea7d68c, type: 3}
   m_Name: Boss
   m_EditorClassIdentifier: 
-  size: 0
-  minHealth: 0
-  maxHealth: 0
-  prefabs: []
+  size: 2
+  minHealth: 200
+  maxHealth: 250
+  prefabs:
+  - {fileID: 7996403196998648471, guid: 81c52e68219fce04cbe90cd37da087fb, type: 3}

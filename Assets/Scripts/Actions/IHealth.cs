@@ -2,12 +2,13 @@
 {
     public interface IHealth
     {
-        int TotalHealth { get; }
-        int CurrentHealth { get; }
-        void Damage(int damage);
-        void Heal(int healthPoints);
+        float TotalHealth { get; }
+        float CurrentHealth { get; }
+        void Damage(float damage);
+        void Heal(float healthPoints);
         void Restore();
         void Die();
-        void IncreaseTotal(int total, bool updateHealth);
+        void IncreaseTotal(float total, bool updateHealth);
+        float HealthPercentage { get; }
     }
 }

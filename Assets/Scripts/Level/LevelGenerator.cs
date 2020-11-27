@@ -37,7 +37,13 @@ namespace Level
         private IList<Room> verticalAisles;
 
         bool isOpen = false;
-        public void Start()
+
+        public virtual void Start()
+        {
+            Initialize();
+        }
+
+        public void Initialize()
         {
 
             horizontalAisles = aisles.Where(n => n.IsHorizontal).ToList();
@@ -67,7 +73,7 @@ namespace Level
 
 
 
-                var isSideways = Random.value > sidewaysProbability;
+                var isSideways = Random.value < sidewaysProbability;
                 var direction = GetNextDirection(previousDirection);
 
 
@@ -230,7 +236,7 @@ namespace Level
             return list[Random.Range(0, list.Count)];
         }
 
-        public void Spawned(Grid createdObj, Room room, Vector3 worldPos, bool isAisle = false)
+        public virtual void Spawned(Grid createdObj, Room room, Vector3 worldPos, bool isAisle = false)
         {
 
 
